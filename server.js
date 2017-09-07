@@ -6,9 +6,9 @@ var app = express();
 app.use(morgan('combined'));
 
 
-
-var articleOne = {
-    title: 'Article-One | Shashanth Baddam',
+var articles = {
+    
+    `article-one`: { title: 'Article-One | Shashanth Baddam',
     heading: 'Article One',
     date: 'Sep 5, 2017',
     content: 
@@ -22,7 +22,44 @@ var articleOne = {
       This is the content for my first article.This is the content for my first article.This is the content for my first article.
       </p>
    `
-}
+    },
+    `article-two`: { title: 'Article-Two | Shashanth Baddam',
+    heading: 'Article Two',
+    date: 'Sep 5, 2017',
+    content: 
+    `
+     <p>
+      This is the content for my second article.This is the content for my second article.This is the content for my second article.
+      This is the content for my second article.This is the content for my second article.This is the content for my second article.
+      </p>
+       <p>
+      This is the content for my second article.This is the content for my second article.This is the content for my second article.
+      This is the content for my second article.This is the content for my second article.This is the content for my second article.
+      </p>
+   `
+        
+    },
+    `article-three`: { title: 'Article-Three | Shashanth Baddam',
+    heading: 'Article Three',
+    date: 'Sep 5, 2017',
+    content: 
+   
+    `
+     <p>
+      This is the content for my third article.This is the content for my third article.This is the content for my third article.
+      This is the content for my third article.This is the content for my third article.This is the content for my third article.
+      </p>
+       <p>
+      This is the content for my third article.This is the content for my third article.This is the content for my third article.
+      This is the content for my firthirdst article.This is the content for my third article.This is the content for my third article.
+      </p>
+   `
+        
+    }
+   
+};
+
+
 
 function createTemplate(data){
     var title= data.title;
@@ -34,7 +71,7 @@ var htmlTemplate = `
 <html>
   <head>
     <title>
-      Article One | Shashanth Baddam
+    ${title}
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
      <link href="/ui/style.css" rel="stylesheet" />
@@ -69,9 +106,12 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-app.get('/article-one',function(req, res)
+app.get('/articleName',function(req, res)
 {
-     res.send(createTemplate(articleOne));
+    //articleNmae = article-one
+    //articles[articleName]  == {} current objevt for article one]
+    var articleName = req.params.articleName;
+     res.send(createTemplate(articles[articleName]));
 });
 
 app.get('/article-two',function(req, res)
