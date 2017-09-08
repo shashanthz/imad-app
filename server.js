@@ -7,7 +7,7 @@ app.use(morgan('combined'));
 
 
 var articles = {
-    
+
     `article-one`: { title: 'Article-One | Shashanth Baddam',
     heading: 'Article One',
     date: 'Sep 5, 2017',
@@ -114,15 +114,15 @@ app.get('/articleName',function(req, res)
      res.send(createTemplate(articles[articleName]));
 });
 
-app.get('/article-two',function(req, res)
-{
-       res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));
-});
+// app.get('/article-two',function(req, res)
+// {
+//       res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));
+// });
 
-app.get('/article-three',function(req, res)
-{
-      res.sendFile(path.join(__dirname, 'ui', 'article-three.html'));
-});
+// app.get('/article-three',function(req, res)
+// {
+//       res.sendFile(path.join(__dirname, 'ui', 'article-three.html'));
+// });
 
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
