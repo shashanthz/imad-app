@@ -4,3 +4,9 @@ console.log('Loaded!');
 
 var element = document.getElelmentById('main-text');
 element.innerHTML = 'New Value';
+
+//move the img
+var img=document.getElementById('img');
+img.onClick = function(){
+    img.style.marginLeft = '100px';
+};
