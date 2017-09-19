@@ -49,8 +49,7 @@ request.send(null);
 
 
 //submit name
-var nameInput=document.getElementById('name');
-var name=nameInput.value;
+
 var submit=document.getElelmentById('submit_btn');
 submit.onclick=function(){
     //make a request to the server and send d name
@@ -83,6 +82,8 @@ submit.onclick=function(){
 
 
 //Make the Request
+var nameInput=document.getElementById('name');
+var name=nameInput.value;
 request.open('GET','http://baddamshash3434.imad.hasura-app.io/submit-name?name=' + name,true);
 request.send(null);
     
