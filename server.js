@@ -156,7 +156,7 @@ app.get('/submit-name/:name',function(req,res){
 // Do not change port, otherwise your app won't run on IMAD servers
 // Use 8080 only for local development if you already have apache running on 80
 
-var port = 8080;
+var port = 8080; //use 8080 for local development because u might already hav cacvhe running on 80
 app.listen(port, function () {
   console.log(`IMAD course app listening on port ${port}!`);
 });
